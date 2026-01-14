@@ -1,0 +1,11 @@
+---
+- name: Install Nautilus additional packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - nautilus-image-converter
+      - nautilus-share
+      - nautilus-wipe
+    state: present
+    update_cache: true
+    cache_valid_time: "{{ apt_cache_time | default(3600) }}"
